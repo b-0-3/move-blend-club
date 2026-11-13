@@ -1,0 +1,11 @@
+{
+  "name": "move-blend-club",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web de Move Blend Club: club, tienda, cuentas y pagos",
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "firebase-admin": "^14.5.1",
+    "stripe": "^23.1.0"
+  }
+}

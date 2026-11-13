@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gracias | Move Blend Club</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preload" href="fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-pagina="gracias">
+<header id="tira"></header>
+<main class="ancho centro">
+  <img class="troquel" src="img/mb.webp" alt="" width="470" height="245" style="width:150px;rotate:-7deg">
+  <h1 class="rotulo r-l" id="gTitulo">Pago recibido</h1>
+  <p class="texto" id="gTexto">Gracias. Stripe te envía el recibo por email.</p>
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap" id="gAcciones">
+    <a class="boton" href="cuenta.html">Ir a mi cuenta</a>
+    <a class="boton boton-linea" href="index.html">Volver a la portada</a>
+  </div>
+</main>
+<footer id="pie"></footer>
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/base.js"></script>
+<script>
+(function () {
+  var tipo = new URLSearchParams(location.search).get('tipo');
+  var t = MB.$('#gTitulo'), p = MB.$('#gTexto');
+  if (tipo === 'pedido') {
+    MB.cesta.vaciar();
+    t.textContent = 'Pedido recibido';
+    p.textContent = 'Gracias por tu compra. Stripe te envía el recibo por email y nosotros preparamos el envío. Si compraste con tu cuenta, verás el pedido en "Tus pedidos".';
+  } else if (tipo === 'socio') {
+    t.textContent = 'Activando tu plan de socio…';
+    p.textContent = 'El pago ha salido bien. Estamos activando tu plan: suele tardar unos segundos.';
+    var hecho = false;
+    MB.alUsuario(function (u) {
+      if (u && u.plan === 'socio' && !hecho) {
+        hecho = true;
+        t.textContent = 'Ya eres socio, ' + u.nombre;
+        p.textContent = 'Bienvenido. Ya puedes apuntarte a los eventos de socios y tienes tu descuento en la tienda.';
+        MB.$('#gAcciones').innerHTML = '<a class="boton" href="club.html#eventos">Ver eventos de socios</a><a class="boton boton-linea" href="cuenta.html">Ir a mi cuenta</a>';
+      }
+    });
+    setTimeout(function () {
+      if (!hecho) { t.textContent = 'Pago recibido'; p.textContent = 'El pago está hecho, pero la activación está tardando más de lo normal. Entra en tu cuenta en un par de minutos; si sigues como miembro, escríbenos desde contacto y lo arreglamos.'; }
+    }, 25000);
+  }
+})();
+</script>
+</body>
+</html>

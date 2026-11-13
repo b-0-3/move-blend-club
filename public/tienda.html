@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tienda oficial | Move Blend Club</title>
+<meta name="description" content="Merch oficial de Move Blend Club en edición limitada. Envíos a toda España.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Tienda oficial | Move Blend Club">
+<meta property="og:image" content="img/compartir.jpg">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<link rel="preload" href="fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-pagina="tienda">
+<header id="tira"></header>
+
+<main>
+  <section class="cab-simple">
+    <div class="ancho">
+      <h1 class="rotulo r-xxl">Tienda</h1>
+      <p class="texto" style="margin-top:.8rem">Merch oficial en edición limitada. <span id="notaSocio">Los socios tienen un <span data-tarifa="descuentoSocio">10</span> % de descuento en todo.</span></p>
+    </div>
+  </section>
+
+  <section class="bloque" style="padding-top:1rem" aria-label="Productos">
+    <div class="ancho">
+      <ul class="productos" id="productos"><li class="vacio">Cargando productos…</li></ul>
+      <p class="nota" style="margin-top:2.4rem">Envío a toda España por <span data-tarifa="envio">5 €</span>. Pago con tarjeta en la pasarela segura de Stripe.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Cesta lateral -->
+<div class="velo" id="velo"></div>
+<aside class="cesta" id="cesta" role="dialog" aria-modal="true" aria-labelledby="cestaTitulo">
+  <div class="cesta-cab">
+    <h2 class="rotulo r-m" id="cestaTitulo">Tu cesta</h2>
+    <button class="cesta-cerrar" id="cestaCerrar" aria-label="Cerrar la cesta">✕</button>
+  </div>
+  <div class="cesta-cuerpo" id="cestaCuerpo"></div>
+  <div class="cesta-pie" id="cestaPie"></div>
+</aside>
+
+<footer id="pie"></footer>
+
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/base.js"></script>
+<script src="js/tienda.js"></script>
+</body>
+</html>

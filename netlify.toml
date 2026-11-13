@@ -1,0 +1,29 @@
+# Configuración de Netlify para Move Blend Club
+# "public" es lo que se ve en internet. Lo demás (funciones, reglas, guía) no se publica.
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  command = "echo 'Sin compilación: la web son archivos tal cual'"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+[[headers]]
+  for = "/fuentes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

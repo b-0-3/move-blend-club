@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panel de admin | Move Blend Club</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preload" href="fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-pagina="admin">
+<header id="tira"></header>
+
+<main class="ancho bloque" style="padding-top:clamp(1.6rem,5vw,3rem)">
+  <h1 class="rotulo r-l" style="margin-bottom:1.2rem">Panel de admin</h1>
+
+  <p class="vacio" id="aEspera">Comprobando tu sesión…</p>
+
+  <!-- Sin sesión -->
+  <div class="caja" id="aFuera" hidden style="max-width:560px">
+    <h2>Entra con tu cuenta</h2>
+    <p class="texto">El panel solo lo ven las cuentas administradoras.</p>
+    <div><a class="boton" href="cuenta.html?entrar=1&volver=admin.html">Entrar</a></div>
+  </div>
+
+  <!-- Con sesión pero sin permiso -->
+  <div class="caja" id="aSinPermiso" hidden style="max-width:640px">
+    <h2>Tu cuenta todavía no es administradora</h2>
+    <p class="texto">Para activarla (solo se hace una vez):</p>
+    <ol class="texto" style="padding-left:1.2rem;display:grid;gap:.4rem">
+      <li>Abre la consola de Firebase y entra en <b>Firestore Database</b>.</li>
+      <li>Pulsa <b>Iniciar colección</b> y llámala <b>admins</b>.</li>
+      <li>En <b>ID del documento</b> pega este código y guarda (no hace falta ningún campo):</li>
+    </ol>
+    <p><code class="codigo" id="aUid"></code> <button class="boton boton-linea boton-mini" id="aCopiar" type="button">Copiar código</button></p>
+    <p class="nota">Después recarga esta página.</p>
+  </div>
+
+  <!-- Panel -->
+  <div id="aPanel" hidden>
+    <div class="caja" id="aSembrar" hidden style="margin-bottom:1.4rem">
+      <h2>Primer paso: cargar el contenido inicial</h2>
+      <p class="texto">Ahora la web enseña el contenido de ejemplo que viene en el archivo. Al pulsar, ese contenido se copia a tu base de datos y desde entonces lo editas todo aquí, sin tocar código.</p>
+      <div><button class="boton" id="aSembrarBtn" type="button">Cargar contenido inicial</button></div>
+    </div>
+
+    <div class="pestanas admin-pestanas" role="tablist" id="aTabs">
+      <button role="tab" data-tab="events" aria-selected="true">Eventos</button>
+      <button role="tab" data-tab="products" aria-selected="false">Productos</button>
+      <button role="tab" data-tab="orders" aria-selected="false">Pedidos</button>
+      <button role="tab" data-tab="users" aria-selected="false">Gente</button>
+      <button role="tab" data-tab="mensajes" aria-selected="false">Mensajes</button>
+      <button role="tab" data-tab="collaborators" aria-selected="false">Colaboradores</button>
+      <button role="tab" data-tab="ajustes" aria-selected="false">Ajustes</button>
+    </div>
+
+    <div class="admin-cab">
+      <p class="nota" id="aResumen"></p>
+      <button class="boton boton-mini" id="aNuevo" type="button" hidden>Añadir</button>
+    </div>
+    <div id="aCuerpo"><p class="vacio">Cargando…</p></div>
+  </div>
+</main>
+
+<!-- Ventana para editar -->
+<dialog class="editor" id="editor">
+  <form method="dialog" id="editorForm" novalidate>
+    <div class="editor-cab">
+      <h2 class="rotulo r-m" id="editorTitulo">Editar</h2>
+      <button class="cesta-cerrar" type="button" id="editorCerrar" aria-label="Cerrar sin guardar">✕</button>
+    </div>
+    <div class="editor-cuerpo form" id="editorCampos"></div>
+    <p class="msg" id="editorMsg" role="status" style="padding:0 1.2rem"></p>
+    <div class="editor-pie">
+      <button class="boton boton-peligro boton-mini" type="button" id="editorBorrar">Borrar</button>
+      <button class="boton" type="submit" id="editorGuardar">Guardar</button>
+    </div>
+  </form>
+</dialog>
+
+<footer id="pie"></footer>
+
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/base.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Move Blend Club: el club del motor de Madrid</title>
+<meta name="description" content="Rutas, track days, eventos y merch oficial. Un club de Madrid para todos los que aman el motor, tengan el coche que tengan.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Move Blend Club">
+<meta property="og:description" content="Defined by no one. Recognized by all. El club del motor de Madrid.">
+<meta property="og:image" content="img/compartir.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<link rel="preload" href="fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-pagina="portada">
+<header id="tira"></header>
+
+<main>
+  <!-- Portada partida: dos puertas, Club y Tienda -->
+  <section class="portada" aria-label="Elige por dónde entrar">
+    <a class="mitad" href="club.html">
+      <video muted loop playsinline preload="none" poster="img/portada-club-h.jpg" data-h="img/portada-club-h" data-v="img/portada-club-v" aria-hidden="true"></video>
+      <span class="mitad-rotulo rotulo">Club</span>
+      <span class="mitad-sub">Rutas, track days y gente del motor</span>
+    </a>
+    <a class="mitad" href="tienda.html">
+      <video muted loop playsinline preload="none" poster="img/portada-tienda-h.jpg" data-h="img/portada-tienda-h" data-v="img/portada-tienda-v" aria-hidden="true"></video>
+      <span class="mitad-rotulo rotulo">Tienda</span>
+      <span class="mitad-sub">Merch oficial en edición limitada</span>
+    </a>
+    <img class="portada-sello troquel" src="img/mb.webp" alt="Move Blend Club" width="470" height="245">
+  </section>
+
+  <section class="bloque manifiesto">
+    <div class="ancho">
+      <h1 class="rotulo r-xl">Defined by no one. Recognized by all.</h1>
+      <div class="manifiesto-pie">
+        <p class="texto">Move Blend nació de una historia real. Alguien buscó este club toda su vida y no existía, así que lo construyó. <strong>Da igual si llevas un JDM preparado, tu primer coche o todavía ninguno:</strong> si te importa el motor, tienes sitio.</p>
+        <div class="manifiesto-acciones">
+          <a class="boton" href="cuenta.html" id="ctaPrincipal">Crear cuenta gratis</a>
+          <a class="enlace" href="club.html#historia">Conocer el club</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque bloque-panel" aria-labelledby="tProx">
+    <div class="ancho">
+      <div class="bloque-cab">
+        <h2 class="rotulo r-l" id="tProx">Próximas salidas</h2>
+        <a class="enlace" href="club.html#eventos">Ver todos los eventos</a>
+      </div>
+      <ul class="eventos" id="proximos"><li class="vacio">Cargando eventos…</li></ul>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="tPlanes">
+    <div class="ancho">
+      <div class="bloque-cab">
+        <h2 class="rotulo r-l" id="tPlanes">Dos formas de estar dentro</h2>
+      </div>
+      <div class="planes">
+        <table class="planes-tabla">
+          <colgroup><col><col><col class="socio"></colgroup>
+          <thead>
+            <tr><td></td><th scope="col">Miembro<small>Gratis</small></th><th scope="col">Socio<small><span data-tarifa="socioMes">9,99 €</span>/mes</small></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Tienda oficial</th><td class="si" aria-label="Incluido">✓</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row">Eventos abiertos a todos</th><td class="si" aria-label="Incluido">✓</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row">Rutas exclusivas con paradas pensadas</th><td class="no" aria-label="No incluido">–</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row">Track days y workshops</th><td class="no" aria-label="No incluido">–</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row">Fotógrafos en cada salida</th><td class="no" aria-label="No incluido">–</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row">Kit de bienvenida</th><td class="no" aria-label="No incluido">–</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row"><span data-tarifa="descuentoSocio">10</span> % de descuento en la tienda</th><td class="no" aria-label="No incluido">–</td><td class="si" aria-label="Incluido">✓</td></tr>
+            <tr><th scope="row">Comunidad privada de socios</th><td class="no" aria-label="No incluido">–</td><td class="si" aria-label="Incluido">✓</td></tr>
+          </tbody>
+        </table>
+        <div class="socio-caja">
+          <h3 class="rotulo r-m">Socio MBC</h3>
+          <p class="socio-precio cifra"><span data-tarifa="socioMes">9,99 €</span> <small>al mes</small></p>
+          <p>Sin permanencia. Cancelas cuando quieras desde tu cuenta.</p>
+          <a class="boton" href="cuenta.html?plan=socio" id="ctaSocio">Hacerme socio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="pie"></footer>
+
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/base.js"></script>
+<script src="js/portada.js"></script>
+</body>
+</html>
