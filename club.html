@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El club: historia, eventos y colaboradores | Move Blend Club</title>
+<meta name="description" content="Quiénes somos, próximas rutas y eventos de Move Blend Club en Madrid, y cómo apuntarte.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="El club | Move Blend Club">
+<meta property="og:image" content="img/compartir.jpg">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<link rel="preload" href="fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-pagina="club">
+<header id="tira"></header>
+
+<main>
+  <section class="cab-video">
+    <video muted loop playsinline preload="none" poster="img/club-hero.jpg" data-src="img/club-hero.mp4" aria-hidden="true"></video>
+    <div class="ancho">
+      <h1 class="rotulo r-xxl">El club</h1>
+      <p class="texto" style="color:var(--tiza)">Rutas, track days y gente que vive el motor. En Madrid.</p>
+    </div>
+  </section>
+
+  <nav class="subnav" aria-label="Secciones del club">
+    <div class="ancho">
+      <a href="#historia">Quiénes somos</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#colaboradores">Colaboradores</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <section class="bloque" id="historia">
+    <div class="ancho historia">
+      <article class="capitulo">
+        <img src="img/ferrari.webp" alt="Ferrari rojo en una gasolinera, durante una salida del club" width="828" height="493" loading="lazy">
+        <div>
+          <h2 class="rotulo r-m">Construido desde dentro del problema</h2>
+          <p class="texto">Move Blend nació de una frustración muy concreta: amar el motor y no saber cómo disfrutarlo de verdad. No lo creó alguien que quería montar un negocio. Lo creó alguien que buscaba un sitio al que pertenecer, y decidió construirlo.</p>
+        </div>
+      </article>
+      <article class="capitulo">
+        <img src="img/porsche.webp" alt="Porsche 911 GT3 RS azul aparcado en una quedada" width="1600" height="1060" loading="lazy">
+        <div>
+          <h2 class="rotulo r-m">Para todos los que aman el motor</h2>
+          <p class="texto">No importa si tienes un JDM preparado, tu primer coche o ningún coche todavía. La mayoría de clubs eligen un perfil. Nosotros elegimos la pasión.</p>
+        </div>
+      </article>
+      <article class="capitulo">
+        <img src="img/supra.webp" alt="Toyota Supra amarillo en una carretera de ruta" width="1600" height="1059" loading="lazy">
+        <div>
+          <h2 class="rotulo r-m">Más que una caravana</h2>
+          <p class="texto">Fotógrafos en ruta. Paradas pensadas. Tiempo para conocer a la gente. Una ruta no empieza cuando arrancas: empieza cuando sabes lo que viene. El antes, el durante y el después importan los tres.</p>
+        </div>
+      </article>
+      <p class="cita">Aquí todo el mundo importa. Y quien quiere ir más lejos, encuentra exactamente eso.</p>
+    </div>
+  </section>
+
+  <section class="bloque bloque-panel" id="eventos">
+    <div class="ancho">
+      <div class="bloque-cab">
+        <h2 class="rotulo r-l">Próximos eventos</h2>
+        <p class="nota" id="notaEventos"></p>
+      </div>
+      <ul class="eventos" id="listaProximos"><li class="vacio">Cargando eventos…</li></ul>
+      <div id="zonaPasados" hidden>
+        <h3 class="rotulo r-m" style="margin:3rem 0 1rem">Ya celebrados</h3>
+        <ul class="eventos" id="listaPasados"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" id="colaboradores">
+    <div class="ancho">
+      <div class="bloque-cab"><h2 class="rotulo r-l">Colaboradores</h2></div>
+      <ul class="colabs" id="listaColabs" hidden></ul>
+      <p class="texto" id="colabsTexto">Buscamos marcas, talleres y fotógrafos que compartan nuestra forma de vivir el motor. Si la tuya quiere formar parte, <a class="enlace" href="#contacto">escríbenos</a>.</p>
+    </div>
+  </section>
+
+  <section class="bloque bloque-panel" id="contacto">
+    <div class="ancho">
+      <div class="bloque-cab"><h2 class="rotulo r-l">Contacto</h2></div>
+      <p class="texto" style="margin-bottom:1.6rem">Dudas, propuestas o colaboraciones. Te respondemos por email.</p>
+      <form class="form" id="formContacto" novalidate>
+        <div class="dos">
+          <div class="campo"><label for="cNombre">Nombre</label><input id="cNombre" name="nombre" autocomplete="name" required maxlength="80"></div>
+          <div class="campo"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+        </div>
+        <div class="campo"><label for="cMensaje">Mensaje</label><textarea id="cMensaje" name="mensaje" required maxlength="2000"></textarea></div>
+        <label class="campo-check"><input type="checkbox" id="cAcepto" required><span>He leído la <a class="enlace" href="privacidad.html">política de privacidad</a>.</span></label>
+        <p class="msg" id="cMsg" role="status"></p>
+        <div><button class="boton" type="submit">Enviar mensaje</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="pie"></footer>
+
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/base.js"></script>
+<script src="js/club.js"></script>
+</body>
+</html>

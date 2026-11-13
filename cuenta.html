@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mi cuenta | Move Blend Club</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<link rel="preload" href="fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-pagina="cuenta">
+<header id="tira"></header>
+
+<main class="ancho bloque" style="padding-top:clamp(2rem,6vw,4rem)">
+
+  <p class="vacio" id="vistaEspera">Comprobando tu sesión…</p>
+
+  <!-- ══ Sin sesión: crear cuenta o entrar ══ -->
+  <section id="vistaFuera" hidden>
+    <h1 class="rotulo r-l" style="margin-bottom:.6rem">Entra al club</h1>
+    <p class="texto" style="margin-bottom:1.8rem">Crear la cuenta es gratis y no pide tarjeta. Con ella te apuntas a eventos y, si quieres, te haces socio.</p>
+    <div class="caja" style="max-width:480px">
+      <div class="pestanas" role="tablist">
+        <button role="tab" id="tabCrear" aria-selected="true" aria-controls="panelCrear">Crear cuenta</button>
+        <button role="tab" id="tabEntrar" aria-selected="false" aria-controls="panelEntrar">Ya tengo cuenta</button>
+      </div>
+
+      <button class="boton boton-linea boton-ancho" id="btnGoogle" type="button">
+        Continuar con Google
+      </button>
+      <div class="o">o con tu email</div>
+
+      <form class="form" id="panelCrear" role="tabpanel" aria-labelledby="tabCrear" novalidate>
+        <div class="campo"><label for="rNombre">Nombre o apodo</label><input id="rNombre" autocomplete="nickname" required minlength="3" maxlength="40"></div>
+        <div class="campo"><label for="rEmail">Email</label><input id="rEmail" type="email" autocomplete="email" required></div>
+        <div class="campo"><label for="rPass">Contraseña</label><input id="rPass" type="password" autocomplete="new-password" required minlength="6"><small>Mínimo 6 caracteres.</small></div>
+        <label class="campo-check"><input type="checkbox" id="rAcepto"><span>Acepto los <a class="enlace" href="terminos.html" target="_blank">términos</a> y la <a class="enlace" href="privacidad.html" target="_blank">política de privacidad</a>.</span></label>
+        <p class="msg" id="rMsg" role="status"></p>
+        <button class="boton boton-ancho" type="submit">Crear cuenta gratis</button>
+      </form>
+
+      <form class="form" id="panelEntrar" role="tabpanel" aria-labelledby="tabEntrar" novalidate hidden>
+        <div class="campo"><label for="lEmail">Email</label><input id="lEmail" type="email" autocomplete="email" required></div>
+        <div class="campo"><label for="lPass">Contraseña</label><input id="lPass" type="password" autocomplete="current-password" required></div>
+        <p class="msg" id="lMsg" role="status"></p>
+        <button class="boton boton-ancho" type="submit">Entrar</button>
+        <button class="enlace" type="button" id="btnOlvido" style="justify-self:start">He olvidado mi contraseña</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══ Con sesión ══ -->
+  <section id="vistaDentro" hidden>
+    <div class="bloque-cab">
+      <h1 class="rotulo r-l" id="saludo">Hola</h1>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <a class="boton boton-linea boton-mini" href="admin.html" id="irAdmin" hidden>Panel de admin</a>
+        <button class="boton boton-linea boton-mini" id="btnSalir">Cerrar sesión</button>
+      </div>
+    </div>
+
+    <p class="caja" id="avisoEmail" hidden style="margin-bottom:1.4rem;display:block">
+      Te hemos enviado un correo para confirmar tu email. Si no lo ves, mira en spam.
+      <button class="enlace" id="btnReenviar" type="button">Enviármelo otra vez</button>
+    </p>
+
+    <div class="cuenta-rejilla">
+      <!-- Plan -->
+      <div class="caja" id="cajaPlan"></div>
+
+      <!-- Perfil -->
+      <form class="caja" id="formPerfil" novalidate>
+        <h2>Tus datos</h2>
+        <div class="campo"><label for="pNombre">Nombre o apodo</label><input id="pNombre" required minlength="3" maxlength="40" autocomplete="nickname"></div>
+        <div class="campo"><label for="pTel">Teléfono <span class="nota">(opcional, para avisos de eventos)</span></label><input id="pTel" type="tel" maxlength="20" autocomplete="tel"></div>
+        <div class="campo"><label for="pCoche">Tu vehículo <span class="nota">(opcional)</span></label>
+          <select id="pCoche">
+            <option value="">Sin indicar</option>
+            <option>JDM / Japonés</option><option>Europeo</option><option>Americano</option><option>Motocicleta</option><option>Sin vehículo (de momento)</option><option>Otro</option>
+          </select>
+        </div>
+        <p class="nota" id="pEmail"></p>
+        <p class="msg" id="pMsg" role="status"></p>
+        <div><button class="boton boton-mini" type="submit">Guardar cambios</button></div>
+      </form>
+
+      <!-- Mis eventos -->
+      <div class="caja">
+        <h2>Tus eventos</h2>
+        <ul class="lista" id="misEventos"><li class="nota">Cargando…</li></ul>
+      </div>
+
+      <!-- Mis pedidos -->
+      <div class="caja">
+        <h2>Tus pedidos</h2>
+        <ul class="lista" id="misPedidos"><li class="nota">Cargando…</li></ul>
+      </div>
+    </div>
+    <p class="nota" style="margin-top:2rem">¿Quieres borrar tu cuenta y tus datos? Escríbenos desde <a class="enlace" href="club.html#contacto">contacto</a> y lo hacemos.</p>
+  </section>
+</main>
+
+<footer id="pie"></footer>
+
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/base.js"></script>
+<script src="js/cuenta.js"></script>
+</body>
+</html>

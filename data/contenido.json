@@ -1,0 +1,34 @@
+{
+  "_nota": "Contenido inicial de la web. Los precios de 'tarifas' se usan en la web Y en los pagos. Los eventos, productos y colaboradores de aquí solo se muestran hasta que pulses 'Cargar contenido inicial' en el panel de admin; desde entonces manda lo que edites en el panel.",
+  "tarifas": {
+    "envio": 5,
+    "socioMes": 9.99,
+    "descuentoSocio": 10
+  },
+  "ajustes": {
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "email": "",
+    "titular": "",
+    "nif": "",
+    "domicilio": ""
+  },
+  "eventos": [
+    { "id": "ej-autumn-meet", "titulo": "Autumn Meet Madrid", "fecha": "2026-10-18", "tipo": "Quedada", "acceso": "comunidad", "lugar": "Madrid Sur", "plazas": 0, "estado": "abierto", "descripcion": "Quedada abierta para arrancar la temporada.", "ejemplo": true },
+    { "id": "ej-winter-run", "titulo": "Winter Run Sierra", "fecha": "2026-12-13", "tipo": "Ruta", "acceso": "comunidad", "lugar": "Sierra de Guadarrama", "plazas": 45, "estado": "abierto", "descripcion": "Ruta de puertos con parada para comer y fotos en ruta.", "ejemplo": true },
+    { "id": "ej-build-photo", "titulo": "Build & Photography", "fecha": "2027-01-24", "tipo": "Workshop", "acceso": "socios", "lugar": "Por confirmar", "plazas": 15, "estado": "abierto", "descripcion": "Taller de preparación y fotografía de coches.", "ejemplo": true },
+    { "id": "ej-spring-meet", "titulo": "Spring Meet Madrid", "fecha": "2027-03-21", "tipo": "Ruta", "acceso": "socios", "lugar": "Madrid Sur", "plazas": 30, "estado": "abierto", "descripcion": "Ruta de primavera solo para socios.", "ejemplo": true },
+    { "id": "ej-track-day", "titulo": "Track Day", "fecha": "2027-04-04", "tipo": "Track day", "acceso": "socios", "lugar": "Circuito por confirmar", "plazas": 20, "estado": "abierto", "descripcion": "Tandas en circuito con briefing previo.", "ejemplo": true },
+    { "id": "ej-jdm-show", "titulo": "JDM Culture Show", "fecha": "2027-04-18", "tipo": "Show", "acceso": "comunidad", "lugar": "Madrid", "plazas": 0, "estado": "abierto", "descripcion": "Exposición abierta de coches japoneses.", "ejemplo": true }
+  ],
+  "productos": [
+    { "id": "ej-camiseta", "nombre": "Camiseta Move Blend", "descripcion": "100 % algodón orgánico. Logo bordado.", "precio": 25, "img": "img/ejemplo-producto-1.webp", "tallas": ["S", "M", "L", "XL"], "activo": true, "agotado": false, "orden": 1, "ejemplo": true },
+    { "id": "ej-sudadera", "nombre": "Sudadera Move Blend", "descripcion": "Hoodie con bordado MBC en pecho y manga.", "precio": 45, "img": "img/ejemplo-producto-2.webp", "tallas": ["S", "M", "L", "XL"], "activo": true, "agotado": false, "orden": 2, "ejemplo": true },
+    { "id": "ej-gorra", "nombre": "Gorra Move Blend", "descripcion": "Snapback ajustable con logo bordado.", "precio": 20, "img": "img/ejemplo-producto-3.webp", "tallas": [], "activo": true, "agotado": false, "orden": 3, "ejemplo": true },
+    { "id": "ej-taza", "nombre": "Taza Move Blend", "descripcion": "Cerámica con diseño de colección.", "precio": 15, "img": "img/ejemplo-producto-4.webp", "tallas": [], "activo": true, "agotado": false, "orden": 4, "ejemplo": true },
+    { "id": "ej-stickers", "nombre": "Pack de stickers", "descripcion": "8 stickers de vinilo resistente al agua.", "precio": 12, "img": "img/ejemplo-producto-5.webp", "tallas": [], "activo": true, "agotado": false, "orden": 5, "ejemplo": true },
+    { "id": "ej-poster", "nombre": "Póster Move Blend", "descripcion": "Tamaño A2, papel mate de 200 g.", "precio": 18, "img": "img/ejemplo-producto-6.webp", "tallas": [], "activo": true, "agotado": false, "orden": 6, "ejemplo": true }
+  ],
+  "colaboradores": []
+}
